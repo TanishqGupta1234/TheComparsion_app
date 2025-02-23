@@ -13,7 +13,11 @@ body{
 .bg-purple{
     background: #8e00a3;
 }
-
+@media (min-width: 1300px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl{
+        max-width: 1200px;
+    }
+}
 .headerwrapper .top-strip{
     padding: 8px 0px;
 }
@@ -26,7 +30,7 @@ body{
 .headerwrapper .header{
     width: 100%;
     height: auto;
-    padding: 10px 0px;
+    padding: 25px 0px;
 }
 
 .headerwrapper img{
@@ -128,3 +132,18 @@ body{
     color: #000;
     font-weight: 700;
 }
+nav .allCatTab{background: #2bbef9;padding: 10px 15px !important; border-radius: 30px !important;}
+nav .allCatTab *{color: #fff;}
+nav .allCatTab:hover{background: #2bbef9;}
+nav .allCatTab .text {
+    font-weight: 600;
+  }
+  nav .allCatTab .icon1 svg{font-size: 20px !important}
+  nav .allCatTab .icon2 svg{font-size: 15px !important}
+
+nav .navPart2 ul{margin-bottom: 0px;}
+nav .navPart2 li a{font-size: 15px; font-weight: 600; text-decoration: none; color: rgba(0,0,0,0.7); text-transform: uppercase; display:flex ; align-items: center; padding: 10px 20px;
+transition: all 0.2s ease-in-out ; border-radius: 25px;}
+
+nav .navPart2 li a svg{font-size: 20px;}
+nav .navPart2 li a:hover{background: #f0faff; color: #2bbef9;}
