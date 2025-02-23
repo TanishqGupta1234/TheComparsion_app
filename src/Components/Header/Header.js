@@ -7,8 +7,18 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { IoBagOutline } from "react-icons/io5";
 import SearchBox from './SearchBox';
 import Navigation from './Navigation';
+import { Dialog } from '@mui/material';
+import { IoIosSearch} from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
+import { useState } from 'react';
+import Slide from '@mui/material/Slide';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const Header = () => {
+  const [isOpenModel, setisOpenModel]= useState(false);
   return (
     <div className='headerwrapper'>
       {/* Top Announcement Bar */}
@@ -30,14 +40,39 @@ const Header = () => {
             </div>
 
             {/* Search and User Section */}
+        
             <div className='d-flex align-items-center col-sm-10 part2'>
-              <Button className='countryDrop'>
+              
+              <Button className='countryDrop' onClick={()=>setisOpenModel(true)}>
                 <div className='info d-flex flex-column'>
                   <span className='label'>Your Location</span>
                   <span className='name'>India</span>
                 </div>
                 <span className='ml-auto'><FaAngleDown/></span>
               </Button>
+              <Dialog open={isOpenModel} onClose={()=>setisOpenModel(false)}className='locationModel'  TransitionComponent={Transition}>
+                <h4 className='mb-0'>Choose Your Delivery Location</h4>
+                <p>Enter your address to estimate the delivery time!</p>
+                <Button className='close_' onClick={()=>setisOpenModel(false)}><IoMdClose/></Button>
+                <div className='headerSearch w-100'>
+                        <input type='text' placeholder='Search for your area...'/>
+                        <Button><IoIosSearch/></Button>
+                      </div> 
+<ul className='countryList mt-3'>
+<li><Button onClick={()=>setisOpenModel(false)}>Mumbai</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Delhi</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Bangalore</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Kolkata</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Chennai</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Hyderabad</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Pune</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Ahmedabad</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Jaipur</Button></li>
+  <li><Button onClick={()=>setisOpenModel(false)}>Lucknow</Button></li>
+
+</ul>
+
+              </Dialog>
               
               <SearchBox />
 
